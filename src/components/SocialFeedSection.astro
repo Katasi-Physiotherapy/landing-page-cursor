@@ -1,0 +1,86 @@
+---
+// Social embed URLs - replace with actual Katasi social handles
+const facebookPageUrl = 'https://www.facebook.com/homeandsportsphysio';
+const tiktokEmbedUrl = 'https://www.tiktok.com/embed/v2/'; // Placeholder - add actual video ID
+const instagramUrl = 'https://www.instagram.com/'; // Placeholder - add actual handle
+---
+
+<section class="social-feed">
+  <div class="container">
+    <h2 class="section-title">Recovery Tips & Patient Education</h2>
+    <div class="social-feed__grid">
+      <div class="social-feed__item social-feed__facebook">
+        <div class="fb-page" data-href={facebookPageUrl} data-tabs="timeline" data-width="340" data-height="400" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+          <blockquote cite={facebookPageUrl} class="fb-xfbml-parse-ignore">
+            <a href={facebookPageUrl}>Katasi Physiotherapy on Facebook</a>
+          </blockquote>
+        </div>
+      </div>
+      <div class="social-feed__item social-feed__links">
+        <div class="social-feed__card">
+          <h3>Follow us for tips</h3>
+          <p>Get recovery tips, exercise ideas, and patient education on our social channels.</p>
+          <div class="social-feed__buttons">
+            <a href={facebookPageUrl} target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm">Facebook</a>
+            <a href={instagramUrl} target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--sm">Instagram</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .social-feed {
+    padding: var(--space-3xl) 0;
+    background: var(--color-background-alt);
+  }
+  
+  .social-feed__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+    align-items: start;
+  }
+  
+  .social-feed__card {
+    background: var(--color-surface);
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .social-feed__card h3 {
+    margin: 0 0 var(--space-md);
+    font-size: 1.25rem;
+    color: var(--color-primary);
+  }
+  
+  .social-feed__card p {
+    margin: 0 0 var(--space-lg);
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+  
+  .social-feed__buttons {
+    display: flex;
+    gap: var(--space-md);
+  }
+  
+  @media (max-width: 768px) {
+    .social-feed__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  // Facebook SDK for page plugin
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>

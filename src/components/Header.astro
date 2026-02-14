@@ -1,0 +1,222 @@
+---
+const currentPath = Astro.url.pathname;
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/services/', label: 'Services' },
+  { href: '/about/', label: 'About' },
+  { href: '/blog/', label: 'Blog' },
+  { href: '/contact/', label: 'Contact' },
+];
+---
+
+<header class="header">
+  <div class="container header__inner">
+    <a href="/" class="header__logo">
+      <span class="header__logo-text">Katasi</span>
+      <span class="header__logo-sub">Physiotherapy</span>
+    </a>
+    
+    <nav class="header__nav" aria-label="Main navigation">
+      <ul class="header__nav-list">
+        {navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class:list={['header__nav-link', { 'header__nav-link--active': currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href)) }]}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+    
+    <div class="header__cta">
+      <a href="tel:+254705717353" class="btn btn--primary btn--sm">Call Now</a>
+      <a href="https://wa.me/254705717353" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--sm">WhatsApp</a>
+    </div>
+    
+    <button class="header__menu-btn" aria-label="Toggle menu" aria-expanded="false" data-menu-toggle>
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+  
+  <div class="header__mobile-nav" data-mobile-nav aria-hidden="true">
+    <nav aria-label="Mobile navigation">
+      <ul>
+        {navLinks.map((link) => (
+          <li>
+            <a href={link.href} class:list={['header__mobile-link', { 'header__mobile-link--active': currentPath === link.href }]}>
+              {link.label}
+            </a>
+          </li>
+        ))}
+        <li>
+          <a href="tel:+254705717353" class="header__mobile-link">Call Now</a>
+        </li>
+        <li>
+          <a href="https://wa.me/254705717353" target="_blank" rel="noopener noreferrer" class="header__mobile-link">WhatsApp</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--color-surface);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: var(--space-md);
+    padding-bottom: var(--space-md);
+    gap: var(--space-lg);
+  }
+  
+  .header__logo {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: var(--color-text);
+  }
+  
+  .header__logo:hover {
+    color: var(--color-primary);
+  }
+  
+  .header__logo-text {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+  
+  .header__logo-sub {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    letter-spacing: 0.05em;
+  }
+  
+  .header__nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: var(--space-xl);
+  }
+  
+  .header__nav-link {
+    font-weight: 500;
+    color: var(--color-text);
+    padding: var(--space-sm) 0;
+    position: relative;
+  }
+  
+  .header__nav-link:hover,
+  .header__nav-link--active {
+    color: var(--color-primary);
+  }
+  
+  .header__nav-link--active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--color-primary);
+    border-radius: var(--radius-full);
+  }
+  
+  .header__cta {
+    display: flex;
+    gap: var(--space-sm);
+  }
+  
+  .header__menu-btn {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-sm);
+  }
+  
+  .header__menu-btn span {
+    width: 24px;
+    height: 2px;
+    background: var(--color-text);
+    border-radius: var(--radius-full);
+    transition: var(--transition-base);
+  }
+  
+  .header__mobile-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-surface);
+    box-shadow: var(--shadow-lg);
+    padding: var(--space-lg);
+  }
+  
+  .header__mobile-nav[aria-hidden="false"] {
+    display: block;
+  }
+  
+  .header__mobile-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .header__mobile-nav li {
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  .header__mobile-link {
+    display: block;
+    padding: var(--space-md);
+    font-weight: 500;
+    color: var(--color-text);
+  }
+  
+  .header__mobile-link:hover,
+  .header__mobile-link--active {
+    color: var(--color-primary);
+  }
+  
+  @media (max-width: 768px) {
+    .header__nav,
+    .header__cta {
+      display: none;
+    }
+    
+    .header__menu-btn {
+      display: flex;
+    }
+  }
+</style>
+
+<script>
+  document.querySelector('[data-menu-toggle]')?.addEventListener('click', () => {
+    const btn = document.querySelector('[data-menu-toggle]');
+    const nav = document.querySelector('[data-mobile-nav]');
+    if (btn && nav) {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', (!expanded).toString());
+      nav.setAttribute('aria-hidden', expanded.toString());
+    }
+  });
+</script>

@@ -1,0 +1,121 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="About Katasi Physiotherapy"
+  description="Katasi Physiotherapy - evidence-based physiotherapy in Westlands, Nairobi. Qualified physiotherapist trained at KMTC and Amref."
+>
+  <section class="page-hero">
+    <div class="container">
+      <h1 class="page-hero__title">About Katasi Physiotherapy</h1>
+      <p class="page-hero__subtitle">
+        Helping people reclaim their mobility and live pain-free lives through evidence-based care.
+      </p>
+    </div>
+  </section>
+
+  <section class="about-content">
+    <div class="container">
+      <div class="about-section">
+        <h2>Our Story</h2>
+        <p>
+          Katasi Physiotherapy was founded to help people reclaim their mobility and live pain-free lives through evidence-based care and personalized treatment plans.
+        </p>
+      </div>
+
+      <div class="about-section">
+        <h2>Our Philosophy</h2>
+        <ul>
+          <li><strong>Movement is medicine</strong> — We believe in the healing power of targeted movement and exercise.</li>
+          <li><strong>Patient education</strong> — We empower you to understand your body and prevent future injury.</li>
+          <li><strong>Long-term healing</strong> — We focus on sustainable recovery, not just quick fixes.</li>
+        </ul>
+      </div>
+
+      <div class="about-section">
+        <h2>Credentials</h2>
+        <p>
+          Our physiotherapist is qualified and trained at:
+        </p>
+        <ul>
+          <li>KMTC (Kenya Medical Training College)</li>
+          <li>Amref University</li>
+        </ul>
+      </div>
+
+      <section class="about-cta">
+        <p>Ready to start your recovery journey?</p>
+        <div class="about-cta__buttons">
+          <a href="tel:+254705717353" class="btn btn--primary btn--lg">Call Now</a>
+          <a href="https://wa.me/254705717353" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--lg">WhatsApp</a>
+        </div>
+      </section>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    padding: var(--space-3xl) 0;
+    background: linear-gradient(135deg, var(--color-background) 0%, var(--color-background-alt) 100%);
+  }
+  
+  .page-hero__title {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    margin: 0 0 var(--space-md);
+    color: var(--color-text);
+  }
+  
+  .page-hero__subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    margin: 0;
+    max-width: 640px;
+  }
+  
+  .about-content {
+    padding: var(--space-3xl) 0;
+  }
+  
+  .about-section {
+    margin-bottom: var(--space-2xl);
+    max-width: 720px;
+  }
+  
+  .about-section h2 {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    margin: 0 0 var(--space-lg);
+  }
+  
+  .about-section p,
+  .about-section li {
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+  
+  .about-section ul {
+    padding-left: var(--space-xl);
+  }
+  
+  .about-cta {
+    margin-top: var(--space-3xl);
+    padding: var(--space-2xl);
+    background: var(--color-background-alt);
+    border-radius: var(--radius-lg);
+    text-align: center;
+  }
+  
+  .about-cta p {
+    font-size: 1.25rem;
+    margin: 0 0 var(--space-xl);
+  }
+  
+  .about-cta__buttons {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+</style>

@@ -1,0 +1,54 @@
+---
+const outcomes = [
+  'Reduced pain',
+  'Improved mobility',
+  'Faster recovery',
+  'Better posture',
+  'Return to work or sport',
+];
+---
+
+<section class="outcomes">
+  <div class="container">
+    <h2 class="section-title">What you can expect</h2>
+    <ul class="outcomes__list">
+      {outcomes.map((outcome) => (
+        <li class="outcomes__item">{outcome}</li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .outcomes {
+    padding: var(--space-3xl) 0;
+    background: var(--color-surface);
+  }
+  
+  .outcomes__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-lg);
+  }
+  
+  .outcomes__item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-xl);
+    background: var(--color-background-alt);
+    border-radius: var(--radius-full);
+    font-weight: 500;
+    color: var(--color-text);
+  }
+  
+  .outcomes__item::before {
+    content: '✓';
+    color: var(--color-secondary);
+    font-weight: 700;
+  }
+</style>

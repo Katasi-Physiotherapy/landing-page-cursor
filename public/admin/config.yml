@@ -1,0 +1,25 @@
+# Decap CMS config for Katasi Physiotherapy
+# Access at: yourdomain.com/admin
+
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+locale: "en"
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "string", required: false }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Category", name: "category", widget: "select", options: ["Back pain", "Sports injuries", "Posture", "Recovery tips", "Lifestyle"], required: false }
+      - { label: "Cover Image", name: "coverImage", widget: "image", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }

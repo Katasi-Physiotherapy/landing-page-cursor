@@ -1,0 +1,133 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="/" class="footer__logo">
+          <span class="footer__logo-text">Katasi</span>
+          <span class="footer__logo-sub">Physiotherapy</span>
+        </a>
+        <p class="footer__tagline">Move without pain. Recover stronger.</p>
+      </div>
+      
+      <div class="footer__links">
+        <h4 class="footer__heading">Quick Links</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/services/">Services</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer__contact">
+        <h4 class="footer__heading">Contact</h4>
+        <p>Mogotio Road, Westlands<br />Nairobi, Kenya</p>
+        <p><a href="tel:+254705717353">0705 717 353</a></p>
+        <p><a href="https://wa.me/254705717353" target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
+      </div>
+    </div>
+    
+    <div class="footer__bottom">
+      <p>&copy; {currentYear} Katasi Physiotherapy. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--color-text);
+    color: rgba(255, 255, 255, 0.9);
+    padding: var(--space-3xl) 0 var(--space-xl);
+    margin-top: var(--space-3xl);
+  }
+  
+  .footer__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--space-2xl);
+    margin-bottom: var(--space-2xl);
+  }
+  
+  .footer__logo {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    margin-bottom: var(--space-md);
+  }
+  
+  .footer__logo-text {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+  }
+  
+  .footer__logo-sub {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 0.05em;
+  }
+  
+  .footer__tagline {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    margin: 0;
+  }
+  
+  .footer__heading {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 var(--space-md);
+    color: white;
+  }
+  
+  .footer__links ul,
+  .footer__contact p {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .footer__links li {
+    margin-bottom: var(--space-sm);
+  }
+  
+  .footer__links a,
+  .footer__contact a {
+    color: rgba(255, 255, 255, 0.85);
+    transition: color var(--transition-fast);
+  }
+  
+  .footer__links a:hover,
+  .footer__contact a:hover {
+    color: var(--color-secondary);
+  }
+  
+  .footer__contact p {
+    margin-bottom: var(--space-sm);
+  }
+  
+  .footer__bottom {
+    padding-top: var(--space-xl);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+  }
+  
+  .footer__bottom p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+  @media (max-width: 768px) {
+    .footer__grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
+    }
+  }
+</style>

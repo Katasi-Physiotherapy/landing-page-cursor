@@ -1,0 +1,90 @@
+---
+const address = 'Mogotio Road, Westlands';
+const phone = '0705 717 353';
+const phoneRaw = '+254705717353';
+const mapEmbedUrl = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8148000000003!2d36.8069!3d-1.2654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMcKwMTUnNTUuNCJTIDM2wrA0OCcyNC44IkU!5e0!3m2!1sen!2ske!4v1';
+// Replace mapEmbedUrl with actual Katasi location embed from Google Maps
+---
+
+<section class="location-contact">
+  <div class="container">
+    <h2 class="section-title">Find Us</h2>
+    <div class="location-contact__grid">
+      <div class="location-contact__info">
+        <div class="location-contact__item">
+          <strong>Address</strong>
+          <p>{address}<br />Nairobi, Kenya</p>
+        </div>
+        <div class="location-contact__item">
+          <strong>Phone</strong>
+          <p><a href={`tel:${phoneRaw}`}>{phone}</a></p>
+        </div>
+        <div class="location-contact__item">
+          <strong>WhatsApp</strong>
+          <p><a href={`https://wa.me/${phoneRaw.replace('+', '')}`} target="_blank" rel="noopener noreferrer">Message us</a></p>
+        </div>
+      </div>
+      <div class="location-contact__map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8148000000003!2d36.8069!3d-1.2654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1737d2e39f2d%3A0x7c5d2b2b2b2b2b2b!2sMogotio%20Rd%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1707897600000!5m2!1sen!2ske"
+          width="100%"
+          height="300"
+          style="border:0; border-radius: var(--radius-lg);"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Katasi Physiotherapy location"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .location-contact {
+    padding: var(--space-3xl) 0;
+    background: var(--color-background-alt);
+  }
+  
+  .location-contact__grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: var(--space-2xl);
+    align-items: start;
+  }
+  
+  .location-contact__item {
+    margin-bottom: var(--space-xl);
+  }
+  
+  .location-contact__item strong {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-xs);
+  }
+  
+  .location-contact__item p {
+    margin: 0;
+    font-size: 1.125rem;
+  }
+  
+  .location-contact__item a {
+    color: var(--color-primary);
+  }
+  
+  .location-contact__map {
+    min-height: 300px;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  @media (max-width: 768px) {
+    .location-contact__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

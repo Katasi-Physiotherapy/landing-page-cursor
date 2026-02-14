@@ -1,0 +1,129 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const services = [
+  {
+    title: 'Back & Neck Pain',
+    items: ['Disc bulge', 'Sciatica', 'Posture correction'],
+  },
+  {
+    title: 'Sports Injuries',
+    items: ['Knee injuries', 'Ankle sprains', 'Muscle strains'],
+  },
+  {
+    title: 'Musculoskeletal Pain',
+    items: ['Shoulder pain', 'Joint stiffness', 'Chronic pain'],
+  },
+  {
+    title: 'Rehabilitation',
+    items: ['Post surgery rehab', 'Injury recovery', 'Mobility restoration'],
+  },
+  {
+    title: 'Advanced Therapy',
+    items: ['Dry needling', 'Electrotherapy', 'Exercise therapy'],
+  },
+];
+---
+
+<Layout
+  title="Physiotherapy Services"
+  description="Back pain, sports injuries, posture correction, dry needling, home visits. Expert physiotherapy services in Westlands, Nairobi."
+>
+  <section class="page-hero">
+    <div class="container">
+      <h1 class="page-hero__title">Our Services</h1>
+      <p class="page-hero__subtitle">
+        Comprehensive physiotherapy care for pain relief, injury recovery, and long-term wellness.
+      </p>
+    </div>
+  </section>
+
+  <section class="services-list">
+    <div class="container">
+      {services.map((service) => (
+        <article class="service-block">
+          <h2 class="service-block__title">{service.title}</h2>
+          <ul class="service-block__items">
+            {service.items.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="services-cta">
+    <div class="container">
+      <p>Ready to start your recovery? Book an appointment today.</p>
+      <div class="services-cta__buttons">
+        <a href="tel:+254705717353" class="btn btn--primary btn--lg">Call Now</a>
+        <a href="https://wa.me/254705717353" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--lg">WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    padding: var(--space-3xl) 0;
+    background: linear-gradient(135deg, var(--color-background) 0%, var(--color-background-alt) 100%);
+  }
+  
+  .page-hero__title {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    margin: 0 0 var(--space-md);
+    color: var(--color-text);
+  }
+  
+  .page-hero__subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    margin: 0;
+    max-width: 640px;
+  }
+  
+  .services-list {
+    padding: var(--space-3xl) 0;
+  }
+  
+  .service-block {
+    padding: var(--space-2xl) 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  .service-block:last-of-type {
+    border-bottom: none;
+  }
+  
+  .service-block__title {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    margin: 0 0 var(--space-lg);
+  }
+  
+  .service-block__items {
+    margin: 0;
+    padding-left: var(--space-xl);
+    line-height: 2;
+    color: var(--color-text-muted);
+  }
+  
+  .services-cta {
+    padding: var(--space-3xl) 0;
+    background: var(--color-background-alt);
+    text-align: center;
+  }
+  
+  .services-cta p {
+    font-size: 1.25rem;
+    margin: 0 0 var(--space-xl);
+  }
+  
+  .services-cta__buttons {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+</style>

@@ -1,0 +1,128 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const phone = '0705 717 353';
+const phoneRaw = '254705717353';
+const address = 'Mogotio Road, Westlands';
+const openingHours = 'Mon–Fri: 8am–6pm | Sat: By appointment';
+---
+
+<Layout
+  title="Contact Us"
+  description="Contact Katasi Physiotherapy in Westlands, Nairobi. Call 0705 717 353 or WhatsApp to book an appointment."
+>
+  <section class="page-hero">
+    <div class="container">
+      <h1 class="page-hero__title">Contact Us</h1>
+      <p class="page-hero__subtitle">
+        Get in touch to book an appointment or ask a question. We're here to help.
+      </p>
+    </div>
+  </section>
+
+  <section class="contact-content">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>📞 Call</h3>
+          <a href={`tel:+${phoneRaw}`}>{phone}</a>
+          <p>Click to call directly</p>
+        </div>
+        <div class="contact-card">
+          <h3>💬 WhatsApp</h3>
+          <a href={`https://wa.me/${phoneRaw}`} target="_blank" rel="noopener noreferrer">Message us</a>
+          <p>Fast response for bookings</p>
+        </div>
+        <div class="contact-card">
+          <h3>📍 Address</h3>
+          <p>{address}<br />Nairobi, Kenya</p>
+        </div>
+        <div class="contact-card">
+          <h3>🕐 Opening Hours</h3>
+          <p>{openingHours}</p>
+        </div>
+      </div>
+
+      <div class="contact-map">
+        <h2>Find Us</h2>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8148000000003!2d36.8069!3d-1.2654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1737d2e39f2d%3A0x7c5d2b2b2b2b2b2b!2sMogotio%20Rd%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1707897600000!5m2!1sen!2ske"
+          width="100%"
+          height="400"
+          style="border:0; border-radius: var(--radius-lg);"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Katasi Physiotherapy location"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    padding: var(--space-3xl) 0;
+    background: linear-gradient(135deg, var(--color-background) 0%, var(--color-background-alt) 100%);
+  }
+  
+  .page-hero__title {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    margin: 0 0 var(--space-md);
+    color: var(--color-text);
+  }
+  
+  .page-hero__subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    margin: 0;
+    max-width: 640px;
+  }
+  
+  .contact-content {
+    padding: var(--space-3xl) 0;
+  }
+  
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var(--space-xl);
+    margin-bottom: var(--space-3xl);
+  }
+  
+  .contact-card {
+    background: var(--color-surface);
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .contact-card h3 {
+    font-size: 1.25rem;
+    margin: 0 0 var(--space-md);
+    color: var(--color-primary);
+  }
+  
+  .contact-card a {
+    font-size: 1.25rem;
+    font-weight: 600;
+    display: block;
+    margin-bottom: var(--space-sm);
+  }
+  
+  .contact-card p {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+  }
+  
+  .contact-map h2 {
+    font-size: 1.5rem;
+    margin: 0 0 var(--space-lg);
+    color: var(--color-text);
+  }
+  
+  .contact-map iframe {
+    box-shadow: var(--shadow-sm);
+  }
+</style>

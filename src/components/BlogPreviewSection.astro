@@ -1,0 +1,103 @@
+---
+import { getCollection } from 'astro:content';
+
+let posts: Array<{ slug: string; data: { title: string; description?: string; date: Date; category?: string } }> = [];
+try {
+  posts = (await getCollection('blog'))
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+    .slice(0, 3);
+} catch {
+  // No blog posts yet
+}
+---
+
+<section class="blog-preview">
+  <div class="container">
+    <h2 class="section-title">Latest from our Blog</h2>
+    {posts.length > 0 ? (
+      <div class="blog-preview__grid">
+        {posts.map((post) => (
+          <article class="blog-card">
+            <a href={`/blog/${post.slug}/`} class="blog-card__link">
+              <h3 class="blog-card__title">{post.data.title}</h3>
+              <time class="blog-card__date" datetime={post.data.date.toISOString()}>
+                {post.data.date.toLocaleDateString('en-KE', { year: 'numeric', month: 'long', day: 'numeric' })}
+              </time>
+              {post.data.description && <p class="blog-card__excerpt">{post.data.description}</p>}
+            </a>
+          </article>
+        ))}
+      </div>
+    ) : (
+      <p class="blog-preview__empty">Coming soon. Check back for recovery tips and patient education.</p>
+    )}
+    <div class="blog-preview__cta">
+      <a href="/blog/" class="btn btn--primary btn--md">Read more articles</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .blog-preview {
+    padding: var(--space-3xl) 0;
+    background: var(--color-surface);
+  }
+  
+  .blog-preview__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-xl);
+    margin-bottom: var(--space-2xl);
+  }
+  
+  .blog-card {
+    background: var(--color-background-alt);
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+    transition: box-shadow var(--transition-base);
+  }
+  
+  .blog-card:hover {
+    box-shadow: var(--shadow-md);
+  }
+  
+  .blog-card__link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  
+  .blog-card__link:hover .blog-card__title {
+    color: var(--color-primary);
+  }
+  
+  .blog-card__title {
+    font-size: 1.25rem;
+    margin: 0 0 var(--space-sm);
+    transition: color var(--transition-fast);
+  }
+  
+  .blog-card__date {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    display: block;
+    margin-bottom: var(--space-md);
+  }
+  
+  .blog-card__excerpt {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+  
+  .blog-preview__empty {
+    text-align: center;
+    color: var(--color-text-muted);
+    margin: 0 0 var(--space-2xl);
+  }
+  
+  .blog-preview__cta {
+    text-align: center;
+  }
+</style>

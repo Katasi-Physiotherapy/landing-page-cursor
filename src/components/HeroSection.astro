@@ -1,0 +1,77 @@
+---
+---
+
+<section class="hero">
+  <div class="container hero__inner">
+    <h1 class="hero__headline">Move Without Pain Again.</h1>
+    <p class="hero__subheadline">
+      Expert physiotherapy in Westlands helping you recover from back pain, sports injuries, posture problems and more.
+    </p>
+    <div class="hero__cta">
+      <a href="tel:+254705717353" class="btn btn--primary btn--lg">Call Now</a>
+      <a href="https://wa.me/254705717353?text=Hi%2C%20I'd%20like%20to%20book%20an%20appointment%20at%20Katasi%20Physiotherapy." target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--lg">WhatsApp Now</a>
+    </div>
+    <div class="hero__trust">
+      <span class="hero__trust-item">✔ Located in Westlands</span>
+      <span class="hero__trust-item">✔ Home visits available</span>
+      <span class="hero__trust-item">✔ Modern physiotherapy techniques</span>
+      <span class="hero__trust-item">✔ Insurance accepted</span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding: var(--space-3xl) 0;
+    background: linear-gradient(135deg, var(--color-background) 0%, var(--color-background-alt) 100%);
+  }
+  
+  .hero__inner {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  
+  .hero__headline {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 var(--space-lg);
+    line-height: 1.2;
+  }
+  
+  .hero__subheadline {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    margin: 0 0 var(--space-2xl);
+    line-height: 1.6;
+  }
+  
+  .hero__cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    justify-content: center;
+    margin-bottom: var(--space-2xl);
+  }
+  
+  .hero__trust {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-lg);
+    justify-content: center;
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+  }
+  
+  .hero__trust-item {
+    white-space: nowrap;
+  }
+  
+  @media (max-width: 640px) {
+    .hero__trust {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>
